@@ -57,11 +57,11 @@
           <icon name="chart-pie" class="text-icon"></icon>
         </span>
         <span class="fs-l text mx-2 mb-1 pl-3">汽車銷量哪家强？</span>
-        <dv-scroll-ranking-board class="dv-scr-rank-board mt-1" :config="ranking" />
+        <dv-scroll-ranking-board class="dv-scr-rank-board mt-1" :config="ranking" v-bind:key="ranking.data[0].value"/>
       </div>
       <div class="percent">
         <div class="item bg-color-black">
-          <span>今日任务通过率</span>
+          <span>油車占有率</span>
           <CenterChart
             :id="rate[0].id"
             :tips="rate[0].tips"
@@ -69,7 +69,7 @@
           />
         </div>
         <div class="item bg-color-black">
-          <span>今日任务达标率</span>
+          <span>新能源汽車占有率</span>
           <CenterChart
             :id="rate[1].id"
             :tips="rate[1].tips"
@@ -77,7 +77,7 @@
           />
         </div>
         <div class="water">
-          <dv-water-level-pond class="dv-wa-le-po" :config="water" />
+          <dv-water-level-pond class="dv-wa-le-po" :config="water" v-bind:key="water.data[1]"/>
         </div>
       </div>
     </div>
@@ -91,128 +91,18 @@ export default {
   data() {
     return {
       result:'',
-      // titleItem: [
-      //   {
-      //     title: '车辆总数据',
-      //     number: {
-      //       number: [120],
-      //       toFixed: 1,
-      //       textAlign: 'left',
-      //       content: '{nt}',
-      //       style: {
-      //         fontSize: 26
-      //       }
-      //     }
-      //   },
-      //   {
-      //     title: '销量最高之车辆',
-      //     number: {
-      //       number: [18],
-      //       toFixed: 1,
-      //       textAlign: 'left',
-      //       content: '{nt}',
-      //       style: {
-      //         fontSize: 26
-      //       }
-      //     }
-      //   },
-      //   {
-      //     title: '最高销售额',
-      //     number: {
-      //       number: [2],
-      //       toFixed: 1,
-      //       textAlign: 'left',
-      //       content: '{nt}',
-      //       style: {
-      //         fontSize: 26
-      //       }
-      //     }
-      //   },
-      //   {
-      //     title: '销量最高之车型',
-      //     number: {
-      //       number: [14],
-      //       toFixed: 1,
-      //       textAlign: 'left',
-      //       content: '{nt}',
-      //       style: {
-      //         fontSize: 26
-      //       }
-      //     }
-      //   },
-      //   {
-      //     title: '车型最多之品牌',
-      //     number: {
-      //       number: [106],
-      //       toFixed: 1,
-      //       textAlign: 'left',
-      //       content: '{nt}',
-      //       style: {
-      //         fontSize: 26
-      //       }
-      //     }
-      //   },
-      //   {
-      //     title: '车辆平均之售价',
-      //     number: {
-      //       number: [100],
-      //       toFixed: 1,
-      //       textAlign: 'left',
-      //       content: '{nt}',
-      //       style: {
-      //         fontSize: 26
-      //       }
-      //     }
-      //   }
-      // ],
       ranking: {
         data: [
           {
-            name: '周口',
-            value: 55
-          },
-          {
-            name: '南阳',
-            value: 120
-          },
-          {
-            name: '西峡',
-            value: 78
-          },
-          {
-            name: '驻马店',
-            value: 66
-          },
-          {
-            name: '新乡',
-            value: 80
-          },
-          {
-            name: '新乡2',
-            value: 80
-          },
-          {
-            name: '新乡3',
-            value: 80
-          },
-          {
-            name: '新乡4',
-            value: 80
-          },
-          {
-            name: '新乡5',
-            value: 80
-          },
-          {
-            name: '新乡6',
-            value: 80
+            name : 'default',
+            value : 1
           }
         ],
         carousel: 'single',
-        unit: '人'
+        unit: '輛'
       },
       water: {
-        data: [24, 45],
+        data: [24.52],
         shape: 'roundRect',
         formatter: '{value}%',
         waveNum: 3
@@ -254,9 +144,13 @@ export default {
     CenterChart
   },
   async mounted() {
-    const res = await this.$http.get('myApp/center');
+    const res = await this.$http.get('myApp/center')
     this.result = res.data
-    console.log(this.result)
+    this.$set(this.ranking, 'data', res.data.lastSortList)
+    this.$set(this.rate[0], 'tips', res.data.oilRate)
+    this.$set(this.rate[1], 'tips', res.data.electricRate)
+    this.$set(this.water, 'data ', [res.data.mixRate])
+    console.log(this.water.data)
   }
 }
 </script>

@@ -6,11 +6,18 @@ from .utils import getCenterData
 def center(request):
     if request.method == 'GET':
         sumCar,highVolume,topCar,mostBrand,mostModel,averagePrice = getCenterData.getBaseData()
+        lastSortList = getCenterData.getRollData()
+        getCenterData.getTypeRate()
+        oilRate,electricRate,mixRate = getCenterData.getTypeRate()
         return JsonResponse({
             'sumCar' : sumCar,
             'highVolume' : highVolume,
             'topCar' : topCar,
             'mostBrand' : mostBrand,
             'mostModel' : mostModel,
-            'averagePrice' : averagePrice
+            'averagePrice' : averagePrice,
+            'lastSortList': lastSortList,
+            'oilRate' : oilRate,
+            'electricRate' : electricRate,
+            'mixRate' : mixRate
         })
