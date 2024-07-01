@@ -3,24 +3,60 @@
     <div class="up">
       <div
         class="bg-color-black item"
-        v-for="item in titleItem"
-        :key="item.title"
       >
-        <p class="ml-3 colorWhite ">{{ item.title }}</p>
-        <div>
-          <dv-digital-flop
-            class="dv-dig-flop ml-1 mt-2 pl-3"
-            :config="item.number"
-          />
+        <p class="ml-3 colorGrass fw-b fs-l">车辆总数据</p>
+        <div style="text-align:center">
+          {{this.result.sumCar}}條
         </div>
       </div>
+      <div
+        class="bg-color-black item"
+      >
+        <p class="ml-3 colorGrass ">销售最高车型</p>
+        <div style="text-align:center">
+          {{this.result.topCar}}
+        </div>
+      </div>
+      <div
+        class="bg-color-black item"
+      >
+        <p class="ml-3 colorGrass fw-b fs-l">最高销量</p>
+        <div style="text-align:center">
+          {{this.result.highVolume}}輛
+        </div>
+      </div>
+      <div
+        class="bg-color-black item"
+      >
+        <p class="ml-3 colorGrass fw-b fs-l">销售最多品类</p>
+        <div style="text-align:center">
+          {{this.result.mostModel}}
+        </div>
+      </div>
+      <div
+        class="bg-color-black item"
+      >
+        <p class="ml-3 colorGrass fw-b fs-l">车型最多品牌</p>
+        <div style="text-align:center">
+          {{this.result.mostBrand}}
+        </div>
+      </div>
+      <div
+        class="bg-color-black item"
+      >
+        <p class="ml-3 colorGrass fw-b fs-l">均价</p>
+        <div style="text-align:center">
+          {{this.result.averagePrice}}萬
+        </div>
+      </div>
+
     </div>
     <div class="down">
       <div class="ranking bg-color-black">
         <span>
           <icon name="chart-pie" class="text-icon"></icon>
         </span>
-        <span class="fs-xl text mx-2 mb-1 pl-3">年度负责人组件达标榜</span>
+        <span class="fs-l text mx-2 mb-1 pl-3">汽車銷量哪家强？</span>
         <dv-scroll-ranking-board class="dv-scr-rank-board mt-1" :config="ranking" />
       </div>
       <div class="percent">
@@ -54,80 +90,81 @@ import CenterChart from '@/components/echart/center/centerChartRate'
 export default {
   data() {
     return {
-      titleItem: [
-        {
-          title: '车辆总数据',
-          number: {
-            number: [120],
-            toFixed: 1,
-            textAlign: 'left',
-            content: '{nt}',
-            style: {
-              fontSize: 26
-            }
-          }
-        },
-        {
-          title: '销量最高之车辆',
-          number: {
-            number: [18],
-            toFixed: 1,
-            textAlign: 'left',
-            content: '{nt}',
-            style: {
-              fontSize: 26
-            }
-          }
-        },
-        {
-          title: '最高销售额',
-          number: {
-            number: [2],
-            toFixed: 1,
-            textAlign: 'left',
-            content: '{nt}',
-            style: {
-              fontSize: 26
-            }
-          }
-        },
-        {
-          title: '销量最高之车型',
-          number: {
-            number: [14],
-            toFixed: 1,
-            textAlign: 'left',
-            content: '{nt}',
-            style: {
-              fontSize: 26
-            }
-          }
-        },
-        {
-          title: '车型最多之品牌',
-          number: {
-            number: [106],
-            toFixed: 1,
-            textAlign: 'left',
-            content: '{nt}',
-            style: {
-              fontSize: 26
-            }
-          }
-        },
-        {
-          title: '车辆平均之售价',
-          number: {
-            number: [100],
-            toFixed: 1,
-            textAlign: 'left',
-            content: '{nt}',
-            style: {
-              fontSize: 26
-            }
-          }
-        }
-      ],
+      result:'',
+      // titleItem: [
+      //   {
+      //     title: '车辆总数据',
+      //     number: {
+      //       number: [120],
+      //       toFixed: 1,
+      //       textAlign: 'left',
+      //       content: '{nt}',
+      //       style: {
+      //         fontSize: 26
+      //       }
+      //     }
+      //   },
+      //   {
+      //     title: '销量最高之车辆',
+      //     number: {
+      //       number: [18],
+      //       toFixed: 1,
+      //       textAlign: 'left',
+      //       content: '{nt}',
+      //       style: {
+      //         fontSize: 26
+      //       }
+      //     }
+      //   },
+      //   {
+      //     title: '最高销售额',
+      //     number: {
+      //       number: [2],
+      //       toFixed: 1,
+      //       textAlign: 'left',
+      //       content: '{nt}',
+      //       style: {
+      //         fontSize: 26
+      //       }
+      //     }
+      //   },
+      //   {
+      //     title: '销量最高之车型',
+      //     number: {
+      //       number: [14],
+      //       toFixed: 1,
+      //       textAlign: 'left',
+      //       content: '{nt}',
+      //       style: {
+      //         fontSize: 26
+      //       }
+      //     }
+      //   },
+      //   {
+      //     title: '车型最多之品牌',
+      //     number: {
+      //       number: [106],
+      //       toFixed: 1,
+      //       textAlign: 'left',
+      //       content: '{nt}',
+      //       style: {
+      //         fontSize: 26
+      //       }
+      //     }
+      //   },
+      //   {
+      //     title: '车辆平均之售价',
+      //     number: {
+      //       number: [100],
+      //       toFixed: 1,
+      //       textAlign: 'left',
+      //       content: '{nt}',
+      //       style: {
+      //         fontSize: 26
+      //       }
+      //     }
+      //   }
+      // ],
       ranking: {
         data: [
           {
@@ -218,7 +255,8 @@ export default {
   },
   async mounted() {
     const res = await this.$http.get('myApp/center');
-    console.log(res)
+    this.result = res.data
+    console.log(this.result)
   }
 }
 </script>
