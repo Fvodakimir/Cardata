@@ -16,6 +16,7 @@ def getBaseData():
         else:
             carModels[str(i.carModel)] += 1
     carModels = sorted(carModels.items(),key=lambda x:x[1],reverse=True)
+    mostModel = carModels[0][0]
     carBrand = {}
     maxBrand = 0
     mostBrand = ''
@@ -36,4 +37,5 @@ def getBaseData():
         sumPrice += x
     averagePrice = sumPrice / (sumCar * 2)
     averagePrice = round(averagePrice,2)
-    print(averagePrice)
+    #print(sumCar,highVolume,topCar,mostBrand,mostModel,averagePrice)
+    return sumCar,highVolume,topCar,mostBrand,mostModel,averagePrice

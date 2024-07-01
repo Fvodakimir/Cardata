@@ -215,6 +215,10 @@ export default {
   },
   components: {
     CenterChart
+  },
+  async mounted() {
+    const res = await this.$http.get('myApp/center');
+    console.log(res)
   }
 }
 </script>

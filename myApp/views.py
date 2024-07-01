@@ -5,5 +5,12 @@ from .utils import getCenterData
 
 def center(request):
     if request.method == 'GET':
-        getCenterData.getBaseData()
-        return JsonResponse()
+        sumCar,highVolume,topCar,mostBrand,mostModel,averagePrice = getCenterData.getBaseData()
+        return JsonResponse({
+            'sumCar' : sumCar,
+            'highVolume' : highVolume,
+            'topCar' : topCar,
+            'mostBrand' : mostBrand,
+            'mostModel' : mostModel,
+            'averagePrice' : averagePrice
+        })
