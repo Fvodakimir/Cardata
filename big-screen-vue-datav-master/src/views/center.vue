@@ -56,7 +56,7 @@
         <span>
           <icon name="chart-pie" class="text-icon"></icon>
         </span>
-        <span class="fs-l text mx-2 mb-1 pl-3">汽車銷量哪家强？</span>
+        <span class="fs-l text mx-2 mb-1 pl-3">在榜車型</span>
         <dv-scroll-ranking-board class="dv-scr-rank-board mt-1" :config="ranking" v-bind:key="ranking.data[0].value"/>
       </div>
       <div class="percent">
@@ -76,7 +76,10 @@
             :colorObj="rate[1].colorData"
           />
         </div>
-        <div class="water">
+        <div class="water" style="text-align:center">
+          <p>
+            油电混合新能源占有率
+          </p>
           <dv-water-level-pond class="dv-wa-le-po" :config="water" v-bind:key="water.data[1]"/>
         </div>
       </div>
@@ -99,11 +102,11 @@ export default {
           }
         ],
         carousel: 'single',
-        unit: '輛'
+        unit: '類'
       },
       water: {
         data: [24.52],
-        shape: 'roundRect',
+        shape: 'round',
         formatter: '{value}%',
         waveNum: 3
       },
