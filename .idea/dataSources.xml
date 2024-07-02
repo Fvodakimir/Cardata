@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:mysql://localhost:3306/cardata</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="cardata@192.168.52.119" uuid="37c7ecb4-0368-43fe-abe0-32f823621636">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.52.119:3306/cardata</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

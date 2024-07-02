@@ -51,13 +51,13 @@ def getRollData():
     brandList = [(value, key) for  key, value in carBrand.items()]
     brandList = sorted(brandList,reverse=True)[:10]
     sortDict = {i[1]: i[0] for i in brandList}
-    lastSortList = []
+    lastPieList = []
     for k, v in sortDict.items():
-        lastSortList.append({
+        lastPieList.append({
             'name' : k,
             'value' : v
         })
-    return lastSortList
+    return lastPieList[:10]
 
 def getTypeRate():
     cars = list(getAllCars())
