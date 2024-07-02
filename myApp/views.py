@@ -3,6 +3,7 @@ from django.http import JsonResponse, HttpResponse
 from .utils import getPublicData
 from .utils import getCenterData
 from .utils import getCenterLeftData
+from.utils import getCenterRightData
 
 def center(request):
     if request.method == 'GET':
@@ -27,5 +28,13 @@ def centerLeft(request):
         lastPieList = getCenterLeftData.getPieBrandData()
         return JsonResponse({
             'lastPieList':lastPieList
+
+        })
+def centerRight(request):
+    if request.method == 'GET':
+        realData= getCenterRightData.getPriceSortData()
+        return JsonResponse({
+            'realData':realData
+
 
         })
