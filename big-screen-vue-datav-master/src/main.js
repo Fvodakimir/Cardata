@@ -21,7 +21,7 @@ import echarts from 'echarts'
 //import * as echarts from 'echarts'
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false;
-Vue.prototype.$http = $http;
+Vue.prototype.$http = $http
 // 全局注册
 Vue.component('icon', Icon);
 Vue.use(dataV);

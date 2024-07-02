@@ -3,29 +3,65 @@
     <div class="up">
       <div
         class="bg-color-black item"
-        v-for="item in titleItem"
-        :key="item.title"
       >
-        <p class="ml-3 colorWhite ">{{ item.title }}</p>
-        <div>
-          <dv-digital-flop
-            class="dv-dig-flop ml-1 mt-2 pl-3"
-            :config="item.number"
-          />
+        <p class="ml-3 colorGrass fw-b fs-l">车辆总数据</p>
+        <div style="text-align:center">
+          {{this.result.sumCar}}條
         </div>
       </div>
+      <div
+        class="bg-color-black item"
+      >
+        <p class="ml-3 colorGrass ">销售最高车型</p>
+        <div style="text-align:center">
+          {{this.result.topCar}}
+        </div>
+      </div>
+      <div
+        class="bg-color-black item"
+      >
+        <p class="ml-3 colorGrass fw-b fs-l">最高销量</p>
+        <div style="text-align:center">
+          {{this.result.highVolume}}輛
+        </div>
+      </div>
+      <div
+        class="bg-color-black item"
+      >
+        <p class="ml-3 colorGrass fw-b fs-l">销售最多品类</p>
+        <div style="text-align:center">
+          {{this.result.mostModel}}
+        </div>
+      </div>
+      <div
+        class="bg-color-black item"
+      >
+        <p class="ml-3 colorGrass fw-b fs-l">车型最多品牌</p>
+        <div style="text-align:center">
+          {{this.result.mostBrand}}
+        </div>
+      </div>
+      <div
+        class="bg-color-black item"
+      >
+        <p class="ml-3 colorGrass fw-b fs-l">均价</p>
+        <div style="text-align:center">
+          {{this.result.averagePrice}}萬
+        </div>
+      </div>
+
     </div>
     <div class="down">
       <div class="ranking bg-color-black">
         <span>
           <icon name="chart-pie" class="text-icon"></icon>
         </span>
-        <span class="fs-xl text mx-2 mb-1 pl-3">年度负责人组件达标榜</span>
-        <dv-scroll-ranking-board class="dv-scr-rank-board mt-1" :config="ranking" />
+        <span class="fs-l text mx-2 mb-1 pl-3">在榜車型</span>
+        <dv-scroll-ranking-board class="dv-scr-rank-board mt-1" :config="ranking" v-bind:key="ranking.data[0].value"/>
       </div>
       <div class="percent">
         <div class="item bg-color-black">
-          <span>今日任务通过率</span>
+          <span>油車占有率</span>
           <CenterChart
             :id="rate[0].id"
             :tips="rate[0].tips"
@@ -33,15 +69,18 @@
           />
         </div>
         <div class="item bg-color-black">
-          <span>今日任务达标率</span>
+          <span>新能源汽車占有率</span>
           <CenterChart
             :id="rate[1].id"
             :tips="rate[1].tips"
             :colorObj="rate[1].colorData"
           />
         </div>
-        <div class="water">
-          <dv-water-level-pond class="dv-wa-le-po" :config="water" />
+        <div class="water" style="text-align:center">
+          <p>
+            油电混合新能源占有率
+          </p>
+          <dv-water-level-pond class="dv-wa-le-po" :config="water" v-bind:key="water.data[1]"/>
         </div>
       </div>
     </div>
@@ -54,129 +93,20 @@ import CenterChart from '@/components/echart/center/centerChartRate'
 export default {
   data() {
     return {
-      titleItem: [
-        {
-          title: '车辆总数据',
-          number: {
-            number: [120],
-            toFixed: 1,
-            textAlign: 'left',
-            content: '{nt}',
-            style: {
-              fontSize: 26
-            }
-          }
-        },
-        {
-          title: '销量最高之车辆',
-          number: {
-            number: [18],
-            toFixed: 1,
-            textAlign: 'left',
-            content: '{nt}',
-            style: {
-              fontSize: 26
-            }
-          }
-        },
-        {
-          title: '最高销售额',
-          number: {
-            number: [2],
-            toFixed: 1,
-            textAlign: 'left',
-            content: '{nt}',
-            style: {
-              fontSize: 26
-            }
-          }
-        },
-        {
-          title: '销量最高之车型',
-          number: {
-            number: [14],
-            toFixed: 1,
-            textAlign: 'left',
-            content: '{nt}',
-            style: {
-              fontSize: 26
-            }
-          }
-        },
-        {
-          title: '车型最多之品牌',
-          number: {
-            number: [106],
-            toFixed: 1,
-            textAlign: 'left',
-            content: '{nt}',
-            style: {
-              fontSize: 26
-            }
-          }
-        },
-        {
-          title: '车辆平均之售价',
-          number: {
-            number: [100],
-            toFixed: 1,
-            textAlign: 'left',
-            content: '{nt}',
-            style: {
-              fontSize: 26
-            }
-          }
-        }
-      ],
+      result:'',
       ranking: {
         data: [
           {
-            name: '周口',
-            value: 55
-          },
-          {
-            name: '南阳',
-            value: 120
-          },
-          {
-            name: '西峡',
-            value: 78
-          },
-          {
-            name: '驻马店',
-            value: 66
-          },
-          {
-            name: '新乡',
-            value: 80
-          },
-          {
-            name: '新乡2',
-            value: 80
-          },
-          {
-            name: '新乡3',
-            value: 80
-          },
-          {
-            name: '新乡4',
-            value: 80
-          },
-          {
-            name: '新乡5',
-            value: 80
-          },
-          {
-            name: '新乡6',
-            value: 80
+            name : 'default',
+            value : 1
           }
         ],
         carousel: 'single',
-        unit: '人'
+        unit: '類'
       },
       water: {
-        data: [24, 45],
-        shape: 'roundRect',
+        data: [24.52],
+        shape: 'round',
         formatter: '{value}%',
         waveNum: 3
       },
@@ -217,8 +147,13 @@ export default {
     CenterChart
   },
   async mounted() {
-    const res = await this.$http.get('myApp/center');
-    console.log(res)
+    const res = await this.$http.get('myApp/center')
+    this.result = res.data
+    this.$set(this.ranking, 'data', res.data.lastSortList)
+    this.$set(this.rate[0], 'tips', res.data.oilRate)
+    this.$set(this.rate[1], 'tips', res.data.electricRate)
+    this.$set(this.water, 'data ', [res.data.mixRate])
+    console.log(this.water.data)
   }
 }
 </script>
