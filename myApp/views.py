@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from .utils import getPublicData
 from .utils import getCenterData
+from .utils import getCenterLeftData
 
 def center(request):
     if request.method == 'GET':
@@ -20,4 +21,11 @@ def center(request):
             'oilRate' : oilRate,
             'electricRate' : electricRate,
             'mixRate' : mixRate
+        })
+def centerLeft(request):
+    if request.method == 'GET':
+        lastPieList = getCenterLeftData.getPieBrandData()
+        return JsonResponse({
+            'lastPieList':lastPieList
+
         })

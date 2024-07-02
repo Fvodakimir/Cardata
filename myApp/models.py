@@ -15,7 +15,7 @@ class carInfo(models.Model):
     insure = models.CharField('保修期限', max_length=255, default='')
     createTime = models.DateField("创建时间",auto_now_add=True)
     class Meta:
-        db_table = "carInfo"
+        db_table = "carinfo"
 #user
 class User(models.Model):
     id = models.AutoField('id', primary_key=True)
