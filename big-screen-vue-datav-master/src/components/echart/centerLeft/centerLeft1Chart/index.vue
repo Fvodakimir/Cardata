@@ -29,7 +29,7 @@ export default {
   },
   async mounted () {
     const res =await this.$http.get('myApp/centerLeft/')
-    this.$set(this.cadta,'seriesData',res.data.lastPieList)
+    this.$set(this.cdata,'seriesData',res.data.lastPieList)
 
   },
   updated() {
