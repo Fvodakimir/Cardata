@@ -3,6 +3,7 @@ from django.http import JsonResponse, HttpResponse
 from .utils import getPublicData
 from .utils import getCenterData
 from .utils import getCenterLeftData
+from .utils import getBottomLeftData
 
 def center(request):
     if request.method == 'GET':
@@ -28,4 +29,13 @@ def centerLeft(request):
         return JsonResponse({
             'lastPieList':lastPieList
 
+        })
+
+def bottomLeft(request):
+    if request.method == 'GET':
+        brandList,volumeList,priceList = getBottomLeftData.getSquareData()
+        return JsonResponse({
+            'brandList':brandList,
+            'volumeList':volumeList,
+            'priceList':priceList
         })

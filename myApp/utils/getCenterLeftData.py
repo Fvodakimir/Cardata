@@ -19,6 +19,3 @@ def getPieBrandData():
             'value': v
         })
     return lastPieList[:10]
-
-
-
