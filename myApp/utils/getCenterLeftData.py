@@ -3,10 +3,10 @@ import time
 from .getPublicData import *
 
 def getPieBrandData():
-    cars = list(getAllCArs())
+    cars = list(getAllCars())
     carsVolume = {}
     for i in cars:
-        if carsVolume.get(i.brand) == -1:
+        if carsVolume.get(i.brand,-1) == -1:
             carsVolume[str(i.brand)] = int(i.saleVolume)
         else:
             carsVolume[str(i.brand)] += int(i.saleVolume)
@@ -18,7 +18,7 @@ def getPieBrandData():
             'name': k,
             'value': v
         })
-    return lastPieList
+    return lastPieList[:10]
 
 
 

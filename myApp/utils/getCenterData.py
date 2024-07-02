@@ -67,7 +67,7 @@ def getTypeRate():
             carTypes[str(i.energyType)] = 1
         else:
             carTypes[str(i.energyType)] += 1
-    oilRate = round(carTypes['汽油']/567 * 100,2)
-    electricRate = round(carTypes['纯电动']/567 * 100,2)
+    oilRate = round(carTypes['汽油']/568 * 100,2)
+    electricRate = round(carTypes['纯电动']/568 * 100,2)
     mixRate = round(100 - oilRate - electricRate, 2)
     return oilRate,electricRate,mixRate

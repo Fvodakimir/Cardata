@@ -105,7 +105,7 @@ export default {
         unit: '類'
       },
       water: {
-        data: [24.52],
+        data: [24.47],
         shape: 'round',
         formatter: '{value}%',
         waveNum: 3

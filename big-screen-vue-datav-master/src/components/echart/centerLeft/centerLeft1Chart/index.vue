@@ -1,7 +1,7 @@
 <template>
   <div>
 <!--    -->
-    <div ref = "chart"style="width: 300px;height: 340px"v-bind:key="cdata.seriesData[0][0]"></div>
+    <div ref = "chart" style="width: 300px;height: 340px" v-bind:key="cdata.seriesData[0][0]"></div>
   </div>
 </template>
 
@@ -64,7 +64,7 @@ export default {
           icon: "circle",
           bottom: 0,
           x: "center",
-          data: cdata.seriesData.map(item => item.name),
+          data: this.cdata.seriesData.map(item => item.name),
           textStyle: {
             color: "#fff"
           }
@@ -76,12 +76,12 @@ export default {
             radius: [20, 80],
             roseType: "area",
             center: ["50%", "40%"],
-            data: cdata.seriesData,
+            data: this.cdata.seriesData,
             emphasis:{
               itemStyle:{
                 shadowBlur:10,
                 shadowOffsetX:0,
-                lable:{
+                label:{
                   show:true
                 }
               }
@@ -89,7 +89,7 @@ export default {
           }
         ]
       };
-      this.myChart.setOptions(option);
+      this.myChart.setOption(option);
         },
     loopAnimation(){
       setInterval(() => {
