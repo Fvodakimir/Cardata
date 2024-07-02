@@ -6,22 +6,22 @@
           <icon name="chart-pie" class="text-icon"></icon>
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">地图数据</span>
+          <span class="fs-l text mx-2">品牌詞云図</span>
           <dv-decoration-1 class="dv-dec-1" />
         </div>
       </div>
       <div class="d-flex jc-center">
-        <CenterLeft2Chart />
+        <img src="../../public/carcloud.jpeg" alt="词云图" style="height: 240px;width: 330px;margin-top: 45px">
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import CenterLeft2Chart from "@/components/echart/centerLeft/centerLeft2Chart";
+// import CenterLeft2Chart from "@/components/echart/centerLeft/centerLeft2Chart";
 export default {
   components: {
-    CenterLeft2Chart
+    // CenterLeft2Chart
   },
 };
 </script>

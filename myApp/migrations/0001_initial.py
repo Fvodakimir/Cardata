@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='CarInfomation',
+            name='carInfo',
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='id')),
                 ('brand', models.CharField(default='', max_length=255, verbose_name='品牌')),
