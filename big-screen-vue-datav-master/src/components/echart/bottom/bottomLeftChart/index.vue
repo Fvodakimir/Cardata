@@ -177,7 +177,7 @@ export default {
             }
           ],
           legend: {
-            data: ["已贯通", "贯通率"],
+            data: ["底價", "銷量"],
             textStyle: {
               color: "#B4B4B4"
             },
@@ -230,7 +230,7 @@ export default {
           ],
           series: [
             {
-              name: "贯通率",
+              name: "底價",
               type: "line",
               smooth: true,
               showAllSymbol: true,
@@ -245,7 +245,7 @@ export default {
               data: this.cdata.lineData
             },
             {
-              name: "已贯通",
+              name: "銷量",
               type: "bar",
               barWidth: 10,
               itemStyle: {

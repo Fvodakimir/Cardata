@@ -6,11 +6,14 @@
           <icon name="chart-line" class="text-icon"></icon>
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">任务完成排行榜</span>
+          <span class="fs-l text mx-2">任务完成排行榜</span>
+          <a v-on:click="oilClick" href="#"><span style="color: #5cd9e8">油車</span></a>
+          <span class="fs-l text mx-2"></span>
+          <a v-on:click="electricClick" href="#"><span style="color: #33cea0">新能源</span></a>
         </div>
       </div>
       <div class="d-flex jc-center body-box">
-        <dv-scroll-board class="dv-scr-board" :config="config" />
+        <dv-scroll-board class="dv-scr-board" :config="config" v-bind:key="config.data[0][1]"/>
       </div>
     </div>
   </div>
@@ -21,9 +24,9 @@ export default {
   data() {
     return {
       config: {
-        header: ['组件', '分支', '覆盖率'],
+        header: ['車型', '銷量/臺', '能源'],
         data: [
-          ['组件1', 'dev-1', "<span  class='colorGrass'>↑75%</span>"],
+          ['组件1', 'dev-2', "<span  class='colorGrass'>↑75%</span>"],
           ['组件2', 'dev-2', "<span  class='colorRed'>↓33%</span>"],
           ['组件3', 'dev-3', "<span  class='colorGrass'>↑100%</span>"],
           ['组件4', 'rea-1', "<span  class='colorGrass'>↑94%</span>"],
@@ -44,6 +47,20 @@ export default {
         align: ['center']
       }
     }
+  },
+  methods: {
+    async electricClick() {
+      const res = await this.$http.get('myApp/centerRightChange/0')
+      this.$set(this.config, 'data', res.data.realData)
+    },
+    async oilClick() {
+      const res = await this.$http.get('myApp/centerRightChange/1')
+      this.$set(this.config, 'data', res.data.realData)
+    }
+  },
+  async mounted() {
+    const res = await this.$http.get('myApp/centerRightChange/1')
+    this.$set(this.config, 'data', res.data.realData)
   }
 }
 </script>
