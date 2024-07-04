@@ -6,24 +6,58 @@
           <icon name="chart-area" class="text-icon"></icon>
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">工单修复以及满意度统计图</span>
+          <span class="fs-l text mx-2">汽车排行榜</span>
           <div class="decoration2">
             <dv-decoration-2 :reverse="true" style="width:5px;height:6rem;" />
           </div>
         </div>
       </div>
-      <div>
-        <BottomRightChart />
+      <div class="row-list">
+        <ul class="car_rank" style="width: 100%;height: 420px;overflow: auto">
+          <li style="font-size: 23px">
+            <div>销售排名</div>
+            <div>图片</div>
+            <div>汽车信息</div>
+            <div>销售价格</div>
+            <div>销售趋势</div>
+            <div>保修时间</div>
+            <div>上市时间</div>
+          </li>
+          <li v-for="car in carData" v-bind:key="car.rank">
+            <div>{{car.rank}}</div>
+            <div class="list_img"><img :src="car.carImg" style="height:100%;width:100%" alt=""></div>
+            <div class="list_info">
+              <p>{{car.carName}}</p>
+              <p>{{car.manufacturer}}/{{car.brand}}</p>
+
+            </div>
+            <div class="list_price">{{car.price}}万元</div>
+            <div class="list_volume">{{car.saleVolume}}</div>
+            <div class="list_insure">{{car.insure}}</div>
+            <div class="list_market">{{car.marketTime}}</div>
+          </li>
+        </ul>
+
       </div>
+
     </div>
   </div>
 </template>
 
 <script>
-import BottomRightChart from "@/components/echart/bottom/bottomRightChart";
+
 export default {
+  data(){
+    return{
+      carData:''
+    }
+  },
   components: {
-    BottomRightChart
+
+  },
+  async mounted(){
+    const res = await this.$http.get('myApp/bottomRight/')
+    this.carData = res.data.carData
   }
 };
 </script>
@@ -56,5 +90,43 @@ $box-width: 100%;
       padding-top: 10px;
     }
   }
+  .row_list{
+    list-style: none;
+    .car_rank::-webkit-scrollbar{
+      display: none;
+    }
+    .car_rank li{
+      display: grid;
+      -ms-grid-columns: 100px 150px 180px 120px 120px 110px 100px;
+      grid-template-columns: 100px 150px 180px 120px 120px 110px 100px;
+      cursor: pointer;
+      margin-left: 23px;
+      text-align: center;
+      line-height: 30px;
+    }
+    .car_rank.list_index{
+      font-size: 21px;
+      line-height: 70px;
+      font-weight: bold;
+    }
+    .car_rank.list_img{
+      width:156px;
+      height:80px;
+    }
+    .car_rank.list_price{
+      line-height: 60px;
+    }
+    .car_rank.list_volume{
+      line-height: 60px;
+    }
+    .car_rank.list_insure{
+      line-height: 60px;
+    }
+    .car_rank.list_market{
+      line-height: 60px;
+    }
 }
+}
+//list
+
 </style>

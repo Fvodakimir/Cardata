@@ -7,4 +7,5 @@ urlpatterns = [
     path('bottomLeft/', views.bottomLeft, name='bottomLeft'),
     path('centerRight/', views.centerRight, name='centerRight'),
     path('centerRightChange/<int:energyType>/', views.centerRightChange, name='centerRightChange')
+    path('bottomRight/', views.bottomRight, name='bottomRight'),
 ]
