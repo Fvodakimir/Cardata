@@ -9,21 +9,22 @@ def getPriceSortData():
         s= [json.loads(i.price)][0][0]
         if s<5:
             priceSortList['0-5w']+=1
-        else s>=5 and s<10:
+        elif s>=5 and s<10:
             priceSortList['5-10w']+=1
-        else s>=10 and s<20:
+        elif s>=10 and s<20:
             priceSortList['10-20w']+=1
-        else s>=20 and s<30:
+        elif s>=20 and s<30:
             priceSortList['20-30w']+=1
-        else s>=30:
+        elif s>=30:
             priceSortList['30w以上']+=1
     realData =[]
     for k, v in priceSortList.items():
         realData.append({
             'name':k,
             'value' : v
-
         })
+    return realData
+
 
 
 

@@ -8,8 +8,8 @@
         <span class="fs-l text mx-2">汽车销售价格分布</span>
       </div>
       <div class="d-flex ai-center flex-column body-box">
-        <dv-capsule-chart class="dv-cap-chart" :config="config" v-bind:key="config.data[1].value"style="height:200px"/>
-        <dv-active-ring-chart config="configTwo" style="width:280px;height:210px"v-bind:key="configTwo.data[0].value"/>
+        <dv-capsule-chart class="dv-cap-chart" :config="config" v-bind:key="config.data[1].value" style="height:200px"/>
+        <dv-active-ring-chart config="configTwo" style="width:280px;height:210px" v-bind:key="configTwo.data[0].value"/>
 
       </div>
     </div>
@@ -67,7 +67,7 @@ export default {
 
     },
 
-  components{
+  components:{
 
   }
 }
