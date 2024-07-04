@@ -5,4 +5,5 @@ urlpatterns = [
     path('center/', views.center, name='center'),
     path('centerLeft/', views.centerLeft, name='centerLeft'),
     path('bottomLeft/', views.bottomLeft, name='bottomLeft'),
+    path('centerRight/', views.centerRight, name='centerRight'),
 ]
