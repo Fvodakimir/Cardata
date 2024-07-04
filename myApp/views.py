@@ -5,6 +5,7 @@ from .utils import getCenterData
 from .utils import getCenterLeftData
 from .utils import getBottomLeftData
 from.utils import getCenterRightData
+from .utils import getBottomRightData
 
 def center(request):
     if request.method == 'GET':
@@ -47,5 +48,12 @@ def centerRight(request):
         return JsonResponse({
             'realData':realData
 
+
+        })
+def bottomRight(request):
+    if request.method == 'GET':
+        carData = getBottomRightData.getRankData()
+        return JsonResponse({
+            'carData':carData
 
         })

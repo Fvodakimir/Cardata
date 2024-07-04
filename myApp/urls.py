@@ -6,4 +6,5 @@ urlpatterns = [
     path('centerLeft/', views.centerLeft, name='centerLeft'),
     path('bottomLeft/', views.bottomLeft, name='bottomLeft'),
     path('centerRight/', views.centerRight, name='centerRight'),
+    path('bottomRight/', views.bottomRight, name='bottomRight'),
 ]
