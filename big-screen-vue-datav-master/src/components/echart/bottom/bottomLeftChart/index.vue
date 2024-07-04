@@ -239,7 +239,11 @@ export default {
               yAxisIndex: 1,
               itemStyle: {
                 normal: {
-                  color: "#F02FC2"
+                  barBorderRadius: 5,
+                  color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    { offset: 0, color: "#5C4033" },
+                    { offset: 1, color: "#FAE8D7" }
+                  ])
                 }
               },
               data: this.cdata.lineData
@@ -252,8 +256,8 @@ export default {
                 normal: {
                   barBorderRadius: 5,
                   color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                    { offset: 0, color: "#956FD4" },
-                    { offset: 1, color: "#3EACE5" }
+                    { offset: 0, color: "#93D5DC" },
+                    { offset: 1, color: "#1BA784" }
                   ])
                 }
               },

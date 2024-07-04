@@ -6,7 +6,7 @@
           <icon name="chart-bar" class="text-icon"></icon>
         </span>
         <div class="d-flex">
-          <span class="fs-l text mx-2">銷量-售價</span>
+          <span class="fs-l text mx-2"><h1 style="font-size: 27px">銷量-售价</h1></span>
         </div>
       </div>
       <div>

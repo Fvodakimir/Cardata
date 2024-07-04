@@ -6,7 +6,7 @@
           <icon name="chart-bar" class="text-icon"></icon>
         </span>
         <div class="d-flex">
-          <span class="fs-l text mx-2">品牌销售量饼图</span>
+          <span class="fs-l text mx-2" style="font-size: 17px">品牌销售量饼图</span>
           <dv-decoration-3 class="dv-dec-3" />
         </div>
       </div>

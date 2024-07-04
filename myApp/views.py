@@ -6,6 +6,8 @@ from .utils import getCenterLeftData
 from .utils import getBottomLeftData
 from.utils import getCenterRightData
 from .utils import getCenterChangeData
+from .utils import getBottomRightData
+
 def center(request):
     if request.method == 'GET':
         sumCar,highVolume,topCar,mostBrand,mostModel,averagePrice = getCenterData.getBaseData()
@@ -46,6 +48,13 @@ def centerRight(request):
         realData= getCenterRightData.getPriceSortData()
         return JsonResponse({
             'realData':realData
+        })
+
+def bottomRight(request):
+    if request.method == 'GET':
+        carData = getBottomRightData.getRankData()
+        return JsonResponse({
+            'carData':carData
         })
 
 def centerRightChange(request, energyType):

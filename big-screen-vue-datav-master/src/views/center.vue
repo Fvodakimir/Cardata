@@ -69,7 +69,7 @@
           />
         </div>
         <div class="item bg-color-black">
-          <span>新能源汽車占有率</span>
+          <span>新能源車占有率</span>
           <CenterChart
             :id="rate[1].id"
             :tips="rate[1].tips"

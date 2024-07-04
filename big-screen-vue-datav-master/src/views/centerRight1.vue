@@ -6,7 +6,7 @@
           <icon name="chart-line" class="text-icon"></icon>
         </span>
         <div class="d-flex">
-          <span class="fs-l text mx-2">任务完成排行榜</span>
+          <span class="fs-l text mx-2" style="font-size: 17px">油/电車銷量排行</span>
           <a v-on:click="oilClick" href="#"><span style="color: #5cd9e8">油車</span></a>
           <span class="fs-l text mx-2"></span>
           <a v-on:click="electricClick" href="#"><span style="color: #33cea0">新能源</span></a>
@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       config: {
-        header: ['車型', '銷量/臺', '能源'],
+        header: ['車型', '銷量/輛', '能源'],
         data: [
           ['组件1', 'dev-2', "<span  class='colorGrass'>↑75%</span>"],
           ['组件2', 'dev-2', "<span  class='colorRed'>↓33%</span>"],

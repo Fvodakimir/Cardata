@@ -8,11 +8,11 @@
           <div class="d-flex jc-center">
             <dv-decoration-8 class="dv-dec-8" :color="decorationColor" />
             <div class="title">
-              <span class="title-text">大数据可视化平台</span>
-              <dv-decoration-6
+              <span class="title-text">汽车销售数据<br>大数据可视化平台</span>
+              <dv-decoration-5
                 class="dv-dec-6"
                 :reverse="true"
-                :color="['#50e3c2', '#67a1e5']"
+                :color="['#F1F0ED', '#207F4C']"
               />
             </div>
             <dv-decoration-8
@@ -29,15 +29,15 @@
           <div class="d-flex aside-width">
             <div class="react-left ml-4 react-l-s">
               <span class="react-left"></span>
-              <span class="text">数据分析1</span>
+              <span class="text">制 作：曺亦周 & 吳昻轩</span>
             </div>
             <div class="react-left ml-3">
-              <span class="text">数据分析2</span>
+              <span class="text">Data Presentation</span>
             </div>
           </div>
           <div class="d-flex aside-width">
             <div class="react-right bg-color-blue mr-3">
-              <span class="text fw-b">vue-big-screen</span>
+              <span class="text fw-b">>></span>
             </div>
             <div class="react-right mr-4 react-l-s">
               <span class="react-after"></span>
@@ -52,38 +52,43 @@
           <!-- 第三行数据 -->
           <div class="content-box">
             <div>
-              <dv-border-box-12>
-                <centerLeft1 />
-              </dv-border-box-12>
-            </div>
-            <div>
-              <dv-border-box-12>
-                <centerLeft2 />
-              </dv-border-box-12>
-            </div>
-            <!-- 中间 -->
-            <div>
-              <center />
-            </div>
-            <!-- 中间 -->
-            <div>
-              <centerRight2 />
-            </div>
-            <div>
-              <dv-border-box-13>
+              <dv-border-box-4>
                 <centerRight1 />
-              </dv-border-box-13>
+
+              </dv-border-box-4>
+            </div>
+            <div>
+              <dv-border-box-9>
+                <centerLeft2 />
+              </dv-border-box-9>
+            </div>
+            <!-- 中间 -->
+            <div>
+<!--              <dv-border-box-6 >-->
+                <center />
+<!--              </dv-border-box-6>-->
+            </div>
+            <!-- 中间 -->
+            <div>
+              <dv-border-box-9>
+                <centerLeft1 />
+              </dv-border-box-9>
+            </div>
+            <div>
+              <dv-border-box-4 :reverse="true">
+                <centerRight2 />
+              </dv-border-box-4>
             </div>
           </div>
 
           <!-- 第四行数据 -->
           <div class="bottom-box">
-            <dv-border-box-13>
-              <bottomLeft />
-            </dv-border-box-13>
-            <dv-border-box-12>
+            <dv-border-box-1>
               <bottomRight />
-            </dv-border-box-12>
+            </dv-border-box-1>
+            <dv-border-box-1>
+              <bottomLeft />
+            </dv-border-box-1>
           </div>
         </div>
       </div>

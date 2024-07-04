@@ -6,7 +6,7 @@
           <icon name="chart-pie" class="text-icon"></icon>
         </span>
         <div class="d-flex">
-          <span class="fs-l text mx-2">品牌詞云図</span>
+          <span class="fs-l text mx-2" style="font-size: 17px">品牌詞云図</span>
           <dv-decoration-1 class="dv-dec-1" />
         </div>
       </div>
