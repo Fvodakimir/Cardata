@@ -49,6 +49,12 @@ def centerRight(request):
         return JsonResponse({
             'realData':realData
         })
+def bottomRight(request):
+    if request.method == 'GET':
+        carData = getBottomRightData.getRankData()
+        return JsonResponse({
+            'carData':carData
+        })
 
 def bottomRight(request):
     if request.method == 'GET':
